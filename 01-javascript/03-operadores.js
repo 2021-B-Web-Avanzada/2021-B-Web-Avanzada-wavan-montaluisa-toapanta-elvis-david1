@@ -139,3 +139,14 @@ const respuestaEvery = arreglo
         }
     );
 console.log('respuestaEvery', respuestaEvery);
+
+// reduce
+//suma o resta un valor acumulado
+const respuestaReduce = arreglo
+    .reduce(
+        function (valorAcumulado , valorActual, indice,arreglo) {
+            return (valorAcumulado + valorActual.nota);
+        },
+        100 //acumulador
+    );
+console.log('respuestaReduce', respuestaReduce); //100 + x = 246
