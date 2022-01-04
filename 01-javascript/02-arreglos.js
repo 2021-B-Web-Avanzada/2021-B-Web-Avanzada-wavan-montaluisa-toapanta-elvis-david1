@@ -22,3 +22,13 @@ let objetoPrueba = {a: '1', b: '2', c: '3'};
 for (let llave in objetoPrueba){ //indices
     console.log('llave', llave)
 }
+
+//slice(indice, numero de elementos eliminados, ....items a agregar)
+//EJ arreglo.splice(0,3,1,2,3,4,5,6);
+arreglo.splice(0,0,4);
+//[4,5,6,7,8];
+console.log(arreglo);
+const indiceNueve = arreglo.indexOf(9); // encuentra el primer elemento y devuelve el indice
+arreglo.splice(indiceNueve,2);
+//[4,5,6,7,8];
+console.log(arreglo);
