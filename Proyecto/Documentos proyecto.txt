@@ -1,0 +1,10 @@
+Grupo
+Integrantes:
+- Andres Llumiquinga
+- Elvis Montaluisa
+
+Historias de usuario:
+https://trello.com/invite/b/XNrOgiL4/e0af869e0695a7b6444a6daeb99ac8c9/historias-de-usuario
+
+Mockup Figma:
+https://www.figma.com/file/w7IiA1uBNVCSoJCXZ61ZTS/Proyecto-Web-avanzadas?node-id=0%3A1
