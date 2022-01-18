@@ -1,0 +1,18 @@
+<section class="menu">
+    <nav class="menu-pelis">
+       <div class="menu-opciones">
+        <ul *ngFor="let opcion of opciones">
+            <li class="menu-opcion">
+                <span>{{opcion}}</span>
+                <span class="menu-down-icon">
+                    <fa-icon [icon]="faAngleDown"></fa-icon>
+                </span>
+            </li>
+        </ul>
+       </div>
+        <div class="btn-filtrar">
+            <button>FILTRAR</button>        
+        </div>
+    </nav>
+
+</section>

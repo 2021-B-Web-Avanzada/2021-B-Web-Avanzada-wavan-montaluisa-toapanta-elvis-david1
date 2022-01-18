@@ -1,0 +1,24 @@
+.opciones {
+    display: flex;
+    background-color: rgb(221, 4, 4);
+    justify-content: center;
+    height: 45px;
+}
+.opciones nav{
+    display: flex;
+    width: 70%;
+    align-items: center;
+}
+.opciones nav ul{
+    display: flex;
+    list-style: none;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+    padding: 14px;
+}
+.selected{
+    background-color: #b40710;
+}

@@ -1,0 +1,32 @@
+.header {
+    display: flex;
+    margin: 0px;
+    justify-content: center;
+}
+.header-dilo {
+    display: flex;
+    width: 70%;
+    padding: 20px;
+    align-items: center;
+}
+.logo-dilo{
+    font-size: 35px;
+    font-weight: bold;
+}
+.logo-nu{
+    font-size: 35px;
+    font-weight: bold;
+    color: #dc3545;
+}
+.logo-slogan{
+    font-size: 10px;
+    color: #8a8a8a;
+}
+.search input {
+    padding: 10px;
+    width: 300px;
+    border-style: none;
+    border: 1px solid rgb(175, 175, 175);
+    border-radius: 5px;
+    margin-left: 50px;
+}

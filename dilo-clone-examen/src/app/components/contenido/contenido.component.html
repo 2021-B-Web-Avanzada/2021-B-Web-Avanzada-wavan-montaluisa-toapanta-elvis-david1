@@ -1,0 +1,33 @@
+<section class="contenido">
+    <div class="contenido-page">
+        <div class="contenido-row">
+            <div class="contenido-resultados">
+                <span class="contenido-number">
+                    4616
+                </span>
+                <span class="contenido-label">
+                    Resultados
+                </span>
+            </div>
+            <div class="contenido-ordenar">
+                <span class="contenido-number">
+                    Ordenar por
+                </span>
+                <span class="contenido-label">
+                    <span class="contenido-label-popular">Popular Hoy</span>
+                    <span>
+                        <fa-icon [icon]="faAngleDown"></fa-icon>
+                    </span>
+                </span>
+            </div>
+        </div>
+        <div class="contenido-row2">
+            <div *ngFor="let item of peliculas">
+                <app-pelicula [movie]="item"></app-pelicula>
+            </div>
+        </div>
+        <div class="contenido-row3">
+            <app-paginacion></app-paginacion>
+        </div>
+    </div>
+</section>

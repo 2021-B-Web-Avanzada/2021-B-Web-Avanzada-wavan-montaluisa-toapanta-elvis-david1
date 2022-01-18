@@ -1,0 +1,38 @@
+.menu{
+    display: flex;
+    justify-content: center;
+    padding: 15px;
+}
+.menu-pelis{
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.menu-opciones {
+    display: flex;
+    align-items: center;
+}
+
+.menu-opciones ul {
+    list-style: none;
+}
+
+.menu-opciones ul li {
+    padding: 20px 40px;
+}
+
+.menu-down-icon {
+    padding-left: 10px;
+}
+
+.btn-filtrar button{
+    border-style: none;
+    border: 1px;
+    background-color: white;
+    font-size: 16px;
+    padding: 7px 60px;
+    border: 1px solid #e50914;
+    color: #e50914;
+    border-radius: 5px;
+}

@@ -1,0 +1,42 @@
+.contenido {
+    background-color: rgb(243, 243, 243);
+    display: flex;
+    justify-content: center;
+}
+
+.contenido-page{
+    width: 70%;
+}
+
+.contenido-row{
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 0px;
+    flex-wrap: wrap;
+}
+
+.contenido-row2{
+    display: flex;
+    justify-content: center;
+    margin: 25px 0px;
+    flex-wrap: wrap;
+}
+
+.contenido-row3{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.contenido-number {
+    font-weight: bold;
+}
+
+.contenido-label-popular {
+    padding-right: 10px;
+}
+
+.contenido-label {
+    color: rgba(0, 0, 0, 0.637);
+    padding-left: 15px;
+}

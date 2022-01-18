@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="paginacion">
+        <div class="paginacion-boton">
+            <button class="icon">
+                <fa-icon [icon]="faAngleDoubleLeft"></fa-icon>
+            </button>
+        </div>
+        <div class="paginacion-boton" *ngFor="let number of numbers">
+            <button>{{number}}</button>
+        </div>
+        <div class="paginacion-boton">
+            <button class="paginacion-boto icon">
+                <fa-icon [icon]="faAngleDoubleRight"></fa-icon>
+            </button>
+        </div>
+    </div>
+</div>
