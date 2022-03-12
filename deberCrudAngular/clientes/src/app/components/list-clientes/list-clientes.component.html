@@ -1,0 +1,32 @@
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <span class="h3 me-md-4">Lista de Clientes</span>
+            <button class="btn btn-primary btn-lg" routerLink="/create-clientes">Agregar</button>
+            <h4 style="margin-top: 30px;" *ngIf="clientes.length == 0">No existen registros</h4>
+            <table *ngIf="clientes.length > 0" class="table table-hover mt-5">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Dirección</th>
+                    <th>Correo</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let cliente of clientes">
+                    <td>{{ cliente.nombre }}</td>
+                    <td>{{ cliente.apellido }}</td>
+                    <td>{{ cliente.direccion }}</td>
+                    <td>{{ cliente.correo }}</td>
+                    <td>
+                      <i class="fa-solid fa-user-pen fa-lg text-info me-md-4" [routerLink]="['/editCliente/', cliente.id]"></i>
+                      <i (click)="eliminarClientes(cliente.id)" class="fas fa-trash-alt fa-lg text-danger"></i>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</div>
