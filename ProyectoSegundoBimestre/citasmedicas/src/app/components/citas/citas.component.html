@@ -1,0 +1,229 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <div class="card-header">
+                    Administrar Citas
+                </div>
+                <div class="card-body">
+                    <button type="button" class="btn btn-success btn-block" data-toggle="modal"
+                        data-target="#crearEspecialida">Nueva Cita</button>
+                </div>
+                <div class="modal fade" id="crearEspecialida" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Crear Cita</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form [formGroup]="form">
+                                    <div class="form-group">
+                                        <label for="">Número de Cita</label>
+                                        <input type="txt" name="ID Cita" formControlName="txtId"
+                                            placeholder="Insertar ID Cita" class="form-control">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="input-group" for="inputGroupSelect01">Paciente</label>
+                                        <select name="form-group" id="inputGroupSelect01"
+                                            formControlName="txtPa_Cedula">
+                                            <option *ngFor="let pa of pacientes" [value]="pa.pac_cedula">
+                                                {{pa.pac_nombres}}</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="input-group" for="inputGroupSelect02">Médico</label>
+                                        <select name="form-group" id="inputGroupSelect02"
+                                            formControlName="txtMe_Cedula">
+                                            <option *ngFor="let me of medicos" [value]="me.med_cedula">
+                                                {{me.med_nombres}}</option>
+
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="input-group" for="inputGroupSelect03">Salas</label>
+                                        <select name="form-group" id="inputGroupSelect03" formControlName="txtSala">
+                                            <option *ngFor="let sa of salas" [value]="sa.con_sala_id">{{sa.con_nombre}}
+                                            </option>
+
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="">Fecha</label> <br>
+                                        <input type="date" id="start" formControlName="txtFecha" name="trip-start"
+                                            value="2018-07-22" min="2022-02-07">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Hora</label> <br>
+                                        <input type="time" name="hora" min="09:00" max="18:00" step="3600"
+                                            formControlName="txtHora" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Observaciones</label>
+                                        <textarea name="textarea" formControlName="txtObserva" rows="5"
+                                            cols="55"></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary" (click)="crearCitas()"
+                                            data-dismiss="modal">Crear</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <table class="table table-dark table-hover">
+                <thead>
+                    <tr>
+                        <th>PACIENTE</th>
+                        <th>MEDICO </th>
+                        <th>SALA</th>
+                        <th>FECHA </th>
+                        <th>HORA</th>
+                        <th>OBSERVACIONES </th>
+                        <th>ACCIONES</th>
+                    </tr>
+                    <tr>
+                        <th>Luis Mera</th>
+                        <th>Marco Salazar</th>
+                        <th>Consultorio 1</th>
+                        <th>12/04/2022</th>
+                        <th>14:30</th>
+                        <th>Traer examenes solicitados</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                    <tr>
+                        <th>Maria Mora</th>
+                        <th>Andrea Zapata</th>
+                        <th>Consultorio 2</th>
+                        <th>09/05/2022</th>
+                        <th>08:30</th>
+                        <th>Ninguna</th>
+                        <th>ACCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let es of citas">
+                        <td>
+                            {{es.pac_cedula}}
+                        </td>
+                        <td>
+                            {{es.med_cedula}}
+                        </td>
+                        <td>
+                            {{es.con_sala_id}}
+                        </td>
+                        <td>
+                            {{es.cita_fecha}}
+                        </td>
+                        <td>
+                            {{es.cita_hora}}
+                        </td>
+                        <td>
+                            {{es.cita_observaciones}}
+                        </td>
+
+                        <td class="d-flex justify-content-center">
+
+                            <a class="btn btn-danger" (click)="eliminarCita(es.cita_id)">
+                                <i class="fas fa-trash-alt"></i>
+                            </a>
+                            <a class="btn btn-success" data-toggle="modal" data-target="#editarCitas" (click)="infoUpdateCitas(es.cita_id, es.pac_cedula,es.med_cedula,es.con_sala_id,es.cita_fecha,
+                                es.cita_hora,es.cita_observaciones, es.cita_activa, es.cita_estado)">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <div class="modal fade" id="editarCitas" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Editar Cita</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form [formGroup]="form">
+                                                <div class="form-group">
+                                                    <label>
+                                                        <h6>Cita N°:{{informacionCitas.cita_id}}</h6>
+                                                    </label>
+                                                        <br>
+                                                    <label>
+                                                        <h6>Paciente°:{{informacionCitas.pac_cedula}}</h6>
+                                                    </label>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label class="input-group" for="inputGroupSelect02">Médico</label>
+                                                    <select name="form-group" id="inputGroupSelect02"
+                                                        formControlName="txtMe_Cedula">
+                                                        <option *ngFor="let me of medicos" [value]="me.med_cedula">
+                                                            {{me.med_nombres}}</option>
+
+                                                    </select>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="input-group" for="inputGroupSelect03">Salas</label>
+                                                    <select name="form-group" id="inputGroupSelect03"
+                                                        formControlName="txtSala">
+                                                        <option *ngFor="let sa of salas" [value]="sa.con_sala_id">
+                                                            {{sa.con_nombre}}</option>
+
+                                                    </select>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <label for="">Fecha</label> <br>
+                                                    <input type="date" id="start" formControlName="txtFecha"
+                                                        name="trip-start" value="2018-07-22" min="2022-02-07">
+                                                </div>
+                                                <div class="form-group">
+
+                                                    <label for="">Hora</label> <br>
+                                                    <input type="time" name="hora" min="09:00" max="18:00" step="3600"
+                                                        formControlName="txtHora" />
+
+                                                </div>
+                                                <div class="form-group">
+
+                                                    <label for="">Observaciones</label>
+
+                                                    <textarea name="textarea" formControlName="txtObserva"
+                                                        placeholder="{{informacionCitas.cita_observaciones}}" rows="5"
+                                                        cols="55"></textarea>
+
+
+                                                </div>
+
+
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary"
+                                                        data-dismiss="modal">Cerrar</button>
+                                                    <button type="button" class="btn btn-primary"
+                                                        (click)="actualizarCitas(informacionCitas.cita_id, informacionCitas.pac_cedula)"
+                                                        data-dismiss="modal">Actualizar</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
